@@ -132,20 +132,7 @@
                 audio.pause();
                 muteButton.innerHTML = "Iniciar";
             }
-        }
 
-        function changeAudio() {
-            var audio = document.getElementById("background-audio");
-            var changeAudioButton = document.getElementById("change-audio-button");
-
-            audioIndex = (audioIndex + 1) % audios.length;
-            audio.src = audios[audioIndex];
-
-            audio.load();
-            audio.play();
-
-            changeAudioButton.innerHTML = "Trocar";
-        }
     </script>
 
 </body>
