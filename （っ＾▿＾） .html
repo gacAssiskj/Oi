@@ -89,6 +89,10 @@
         #change-audio-button {
             right: 120px;
         }
+
+        #romantic-phrase {
+            color: white; 
+        }
     </style>
 </head>
 <body>
@@ -105,21 +109,41 @@
     <div id="login-container">
         <div id="form-container">
             <h2>Jessica</h2>
-
+            <p id="romantic-phrase"></p>
         </div>
     </div>
 
     <button id="mute-button" onclick="toggleMute()">Iniciar</button>
 
-
     <script>
         var audios = [
             "3.mp3",
             "3.mp3",
-            // Adicione mais áudios conforme necessário
+            
         ];
 
         var audioIndex = 0;
+
+        var romanticPhrases = [
+            "O amor é a asa veloz que Deus deu à alma para que ela voe até o céu.",
+            "O amor é como o vento, não posso ver, mas posso sentir.",
+            "Te amar é como respirar. Não consigo parar e é necessário para a minha sobrevivência.",
+            "Meu amor por você é um romance que nunca terá um final.",
+            "Você é a luz que ilumina meu coração escuro.",
+            "Em seus olhos, encontrei meu lar.",
+            "Amar você é a melhor escolha que já fiz na vida.",
+            "Seu amor é a melodia que embala meu coração.",
+            "Cada momento ao seu lado é um conto de fadas.",
+            "Você é o sonho que nunca quero acordar.",
+            "O amor que sinto por você é mais profundo do que o oceano.",
+            "Você é a poesia que dá sentido à minha existência.",
+            "Ao seu lado, cada dia é um capítulo incrível da minha história.",
+            "Você é a inspiração por trás de todas as minhas melhores histórias de amor.",
+            "Você é o brilho nas estrelas da minha noite escura.",
+            "Cada palavra sua é uma declaração de amor gravada no meu coração.",
+            "Você é a razão pela qual meu coração bate mais rápido.",
+            
+        ];
 
         function toggleMute() {
             var audio = document.getElementById("background-audio");
@@ -146,6 +170,15 @@
 
             changeAudioButton.innerHTML = "Trocar";
         }
+
+        function displayRandomRomanticPhrase() {
+            var romanticPhraseContainer = document.getElementById("romantic-phrase");
+            var randomIndex = Math.floor(Math.random() * romanticPhrases.length);
+            romanticPhraseContainer.innerHTML = romanticPhrases[randomIndex];
+        }
+
+        
+        setInterval(displayRandomRomanticPhrase, 5000);
     </script>
 
 </body>
