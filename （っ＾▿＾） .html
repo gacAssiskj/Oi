@@ -25,6 +25,13 @@
             z-index: -1;
         }
 
+        /* Estilos para dispositivos móveis */
+        @media only screen and (max-width: 767px) {
+            video {
+                top: -10%; /* Ajuste o valor conforme necessário para subir o vídeo na tela */
+            }
+        }
+
         #login-container {
             background-color: rgba(0, 0, 0, 0.301);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -79,7 +86,7 @@
         }
 
         #mute-button:hover, #change-audio-button:hover {
-            background-color: #0fb600;
+            background-color: #3d3d3d79;
         }
 
         #mute-button {
