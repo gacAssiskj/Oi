@@ -3,41 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página</title>
+    <title>(>‿◠)✌</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('C:/Users/Aluno.02-PE08QBSG/Desktop/cam/555.jpg');
-            background-size:2000px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
 
+        video, audio {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
-        .container {
-            width: 80%;
-            margin: 0 auto;
+
+        #login-container {
+            background-color: rgba(0, 0, 0, 0.301);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.5); /* Fundo branco com 50% de opacidade */
+            width: 300px;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #45a04977;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0fb600;
+        }
+
+        #form-container {
+            position: relative;
+        }
+
+        #mute-button, #change-audio-button {
+            background-color: #45a04977;
+            color: white;
+            padding: 10px;
+            border: 3px solid #fff;
             border-radius: 50px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
-            text:center
+            width: 100px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
         }
-        h1 {
-            color: #333;
+
+        #mute-button:hover, #change-audio-button:hover {
+            background-color: #0fb600;
         }
-        p {
-            color: #666;
-            line-height: 1.6;
+
+        #mute-button {
+            right: 10px;
+        }
+
+        #change-audio-button {
+            right: 120px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Caminhão</h1>
-    <p>Arrefecimento.</p>
-</div>
+    <video autoplay muted loop>
+        <source src="Vídeo sem título ‐ Feito com o Clipchamp.mp4" type="video/mp4">
+    </video>
+
+    <audio id="background-audio" autoplay loop>
+        <source src="2.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <div id="login-container">
+        <div id="form-container">
+            <h2>Jessica</h2>
+
+        </div>
+    </div>
+
+    <button id="mute-button" onclick="toggleMute()">Iniciar</button>
+    <button id="change-audio-button" onclick="changeAudio()">Trocar</button>
+
+    <script>
+        var audios = [
+            "2.mp3",
+            "2.mp3",
+            // Adicione mais áudios conforme necessário
+        ];
+
+        var audioIndex = 0;
+
+        function toggleMute() {
+            var audio = document.getElementById("background-audio");
+            var muteButton = document.getElementById("mute-button");
+            
+            if (audio.paused) {
+                audio.play();
+                muteButton.innerHTML = "Pausar";
+            } else {
+                audio.pause();
+                muteButton.innerHTML = "Iniciar";
+            }
+
+    </script>
 
 </body>
 </html>
-
-
