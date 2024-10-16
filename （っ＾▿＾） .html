@@ -40,13 +40,6 @@
             color: white;
         }
 
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            box-sizing: border-box;
-        }
-
         button {
             background-color: #45a04977;
             color: white;
@@ -60,10 +53,6 @@
 
         button:hover {
             background-color: #0fb600;
-        }
-
-        #form-container {
-            position: relative;
         }
 
         #mute-button, #change-audio-button {
@@ -104,10 +93,7 @@
 
     <div id="login-container">
         <div id="form-container">
-            <h2>
-            Erick
-            </h2>
-
+            <h2>Erick</h2>
         </div>
     </div>
 
@@ -115,16 +101,17 @@
     <button id="change-audio-button" onclick="changeAudio()">Trocar</button>
 
     <script>
-        var audios = [
-            "2.mp3",
-            "23.mp4",
-            
-        ];
-
+        var audios = ["2.mp3", "3.mp3"];
         var audioIndex = 0;
+        var audio = document.getElementById("background-audio");
+
+        // Inicia o primeiro áudio quando a página carregar
+        window.onload = function() {
+            audio.src = audios[audioIndex];
+            audio.play();
+        };
 
         function toggleMute() {
-            var audio = document.getElementById("background-audio");
             var muteButton = document.getElementById("mute-button");
             
             if (audio.paused) {
@@ -134,7 +121,13 @@
                 audio.pause();
                 muteButton.innerHTML = "Iniciar";
             }
+        }
 
+        function changeAudio() {
+            audioIndex = (audioIndex + 1) % audios.length;
+            audio.src = audios[audioIndex];
+            audio.play();
+        }
     </script>
 
 </body>
